@@ -41,11 +41,12 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 
 ```
 /sql
-  01_schema.sql              → creación de tablas, llaves primarias y foráneas
+  01_schema.sql               → creación de tablas, llaves primarias y foráneas
   02_views.sql                → vistas
   03_materialized_view.sql    → vista materializada
 /erd
   ERD_COFFEE.png               → diagrama de relación de entidades
+  ERD_COFFEE.pgerd             → diagrama de relación de entidades
 /etl                          → pipeline de Python (en desarrollo)
 ```
 
