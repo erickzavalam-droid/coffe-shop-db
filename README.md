@@ -33,7 +33,7 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 
 ![Staff by location and position](dashboard/staff_by_location.png)
 
-![Clients by age](dashboard/clients_by_age.png)
+![Clients by age](dashboard/Clients_by_age.png)
 
 ### 🚧 En progreso
 - Pipeline ETL para las tablas restantes (`product`, `sales_outlet`, `sales_transaction`, `sales_detail`)
