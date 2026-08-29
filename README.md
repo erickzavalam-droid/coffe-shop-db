@@ -29,6 +29,12 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 - Manejo seguro de credenciales con `python-dotenv` (`.env` excluido del repositorio vía `.gitignore`)
 - Conexión de Power BI Desktop al schema `staging`, con un primer dashboard: personal por sede/puesto y distribución de clientes por edad
 
+## Dashboard (Power BI)
+
+![Staff by location and position](dashboard/staff_by_location.png)
+
+![Clients by age](dashboard/clients_by_age.png)
+
 ### 🚧 En progreso
 - Pipeline ETL para las tablas restantes (`product`, `sales_outlet`, `sales_transaction`, `sales_detail`)
 - Ampliación del dashboard de Power BI con métricas de ventas
@@ -55,6 +61,9 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
   etl_customer.py               → ETL de customer → staging.customer_staging (cálculo de edad)
   etl_staff.py                  → ETL de staff → staging.staff_staging (cálculo de antigüedad)
   .env.example                  → plantilla de variables de entorno (sin credenciales reales)
+/dashboard
+  staff_by_location.png         → captura del dashboard: personal por sede y puesto
+  clients_by_age.png            → captura del dashboard: distribución de clientes por edad
 ```
 
 > **Nota:** el dataset de prueba (~180,000 registros, generado como parte del curso IBM) se omite de este repositorio por tamaño. La base de datos se puede reconstruir ejecutando `sql/01_schema.sql` y cargando los datos de origen del curso.
