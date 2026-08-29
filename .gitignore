@@ -1,0 +1,3 @@
+etl/.env
+__pycache__/
+*.pyc
