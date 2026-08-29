@@ -24,36 +24,43 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 - Generación y ejecución del script SQL de creación de objetos de base de datos (PostgreSQL)
 - Creación de vistas y vista materializada
 - Exportación de datos e importación a MySQL vía phpMyAdmin
+- Pipeline ETL en Python (`customer` y `staff`) que extrae desde `public`, transforma (cálculo de edad y antigüedad) y carga hacia el schema `staging`
+- Cargas idempotentes con `ON CONFLICT DO UPDATE`, para que el pipeline sea re-ejecutable sin duplicar ni congelar datos calculados
+- Manejo seguro de credenciales con `python-dotenv` (`.env` excluido del repositorio vía `.gitignore`)
+- Conexión de Power BI Desktop al schema `staging`, con un primer dashboard: personal por sede/puesto y distribución de clientes por edad
 
 ### 🚧 En progreso
-- Pipeline ETL en Python para extraer, transformar y cargar los datos hacia un schema `staging`
-- Conexión del schema `staging` a Power BI para construir dashboards de análisis operativo
+- Pipeline ETL para las tablas restantes (`product`, `sales_outlet`, `sales_transaction`, `sales_detail`)
+- Ampliación del dashboard de Power BI con métricas de ventas
 
 ## Tecnologías
 
 - **PostgreSQL** — diseño y modelado de la base de datos central
 - **pgAdmin** — herramienta ERD para modelado visual
 - **MySQL / phpMyAdmin** — replicación de datos hacia un segundo RDBMS
-- **Python** — pipeline ETL (en construcción)
-- **Power BI** — capa de visualización y análisis (en construcción)
+- **Python** (`psycopg2`, `python-dotenv`) — pipeline ETL
+- **Power BI Desktop** — capa de visualización y análisis
 
 ## Estructura
 
 ```
 /sql
-  01_schema.sql               → creación de tablas, llaves primarias y foráneas
+  01_schema.sql              → creación de tablas, llaves primarias y foráneas
   02_views.sql                → vistas
   03_materialized_view.sql    → vista materializada
 /erd
-  ERD_COFFEE.png               → diagrama de relación de entidades
-  ERD_COFFEE.pgerd             → diagrama de relación de entidades
-/etl                          → pipeline de Python (en desarrollo)
+  ERD_COFFEE.png               → diagrama de relación de entidades (imagen)
+  ERD_COFFEE.pgerd             → proyecto del ERD Tool de pgAdmin (editable)
+/etl
+  etl_customer.py               → ETL de customer → staging.customer_staging (cálculo de edad)
+  etl_staff.py                  → ETL de staff → staging.staff_staging (cálculo de antigüedad)
+  .env.example                  → plantilla de variables de entorno (sin credenciales reales)
 ```
 
 > **Nota:** el dataset de prueba (~180,000 registros, generado como parte del curso IBM) se omite de este repositorio por tamaño. La base de datos se puede reconstruir ejecutando `sql/01_schema.sql` y cargando los datos de origen del curso.
 
 ## Próximos pasos
 
-1. Construir el pipeline de extracción y transformación en Python desde las fuentes originales hacia el schema `staging`.
-2. Conectar Power BI al schema `staging` para construir reportes de ventas, desempeño por ubicación y análisis de clientes.
-3. Documentar el flujo completo de datos (arquitectura end-to-end) una vez conectado el pipeline.
+1. Replicar el patrón ETL para `product`, `sales_outlet`, `sales_transaction` y `sales_detail`.
+2. Ampliar el dashboard de Power BI con métricas de ventas por ubicación y producto.
+3. Documentar el flujo completo de datos (arquitectura end-to-end) una vez conectadas todas las tablas.
