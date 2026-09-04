@@ -41,9 +41,9 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 
 ![Total sales by city](dashboard/Sales_by_City.png)
 
-![Top 10 products by sales](dashboards/Products_by_sales.png)
+![Top 10 products by sales](dashboard/Products_by_sales.png)
 
-![Total sales by product category](dashboards/Sales_by_product_category.png)
+![Total sales by product category](dashboard/Sales_by_product_category.png)
 
 ### 🚧 En progreso
 - Métricas adicionales (por ejemplo, ventas por empleado o por rango de fecha)
