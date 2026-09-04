@@ -50,7 +50,7 @@ for employee in employees:
     """, (staff_id, first_name, last_name, position, start_date, time_service, location))
     
 connection.commit()
-print("Carga a prueba.staff_table completada.")
+print("Carga a staging.staff_staging completada.")
 
 cursor.close()
 connection.close()
