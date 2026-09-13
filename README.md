@@ -24,7 +24,7 @@ Como Ingeniero de Datos recién contratado por CAFFEE, el objetivo es diseñar e
 - Generación y ejecución del script SQL de creación de objetos de base de datos (PostgreSQL)
 - Creación de vistas y vista materializada
 - Exportación de datos e importación a MySQL vía phpMyAdmin
-- Pipeline ETL en Python completo para las 6 tablas del negocio (`customer`, `staff`, `product`, `product_type`, `sales_outlet`, `sales_transaction`, `sales_detail`), extrayendo desde `public` y cargando hacia el schema `staging`
+- Pipeline ETL en Python completo para las 7 tablas del negocio (`customer`, `staff`, `product`, `product_type`, `sales_outlet`, `sales_transaction`, `sales_detail`), extrayendo desde `public` y cargando hacia el schema `staging`
 - Estrategia de carga diferenciada por tipo de tabla:
   - **Tablas de dimensión pequeñas** (`customer`, `staff`, `product`, `product_type`, `sales_outlet`): carga completa con `ON CONFLICT DO UPDATE`, refrescando solo los campos que legítimamente pueden cambiar (edad, antigüedad, precio, categoría, teléfono/gerente)
   - **Tablas de hechos grandes e inmutables** (`sales_transaction`, `sales_detail`): carga incremental basada en marca de agua (watermark sobre el ID), evitando reprocesar datos históricos en cada corrida
